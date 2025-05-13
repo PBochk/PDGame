@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef89a868220410f4d8d6dea7e85a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.1
+  startTimeBtwAttack: 1
   health: 3
   speed: 1
   damage: 1
@@ -244,8 +244,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.22818339, y: 0}
-  m_Radius: 0.29526508
+  m_Offset: {x: 0.20661613, y: 0.06967893}
+  m_Radius: 0.2981117
 --- !u!1001 &5570632846225301228
 PrefabInstance:
   m_ObjectHideFlags: 0

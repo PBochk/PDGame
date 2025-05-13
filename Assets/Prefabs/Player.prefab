@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3803397312936070669}
-  - component: {fileID: 7442517730943444935}
   - component: {fileID: 4925871328150540799}
+  - component: {fileID: 7442517730943444935}
+  - component: {fileID: 4549767334139579591}
+  - component: {fileID: 253230485889929966}
   - component: {fileID: 5567923939123362594}
   - component: {fileID: 3062542073888720716}
   - component: {fileID: 2528856167084600419}
-  - component: {fileID: 4549767334139579591}
-  - component: {fileID: 253230485889929966}
+  - component: {fileID: 393669140533982169}
   - component: {fileID: 1933620233273546802}
   m_Layer: 0
   m_Name: Player
@@ -34,40 +35,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.41, y: 1.19, z: 0}
-  m_LocalScale: {x: 1.3497955, y: 1.3497955, z: 1.3497955}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3816814975202701298}
   - {fileID: 8367715239260890466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &7442517730943444935
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629070677225685557}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &4925871328150540799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,56 +97,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5567923939123362594
-MonoBehaviour:
+--- !u!50 &7442517730943444935
+Rigidbody2D:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7629070677225685557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d56b40f48f0463a4bbaf228380b7ca3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingSpeed: 5
-  facingRight: 1
-  health: 10
---- !u!114 &3062542073888720716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629070677225685557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f04dc35760741940aa8a6f18175fcdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.5
-  attackPos: {fileID: 2724389874240431039}
-  enemy:
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 128
-  attackRange: 0.4
-  damage: 1
-  anim: {fileID: 1933620233273546802}
---- !u!114 &2528856167084600419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629070677225685557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb56f33a4ff7ea4eb860c3d34cba748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
-  - {fileID: 6864978157091869799, guid: 14e42bad8844f1e41ab7386d277a677d, type: 3}
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!70 &4549767334139579591
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -222,6 +173,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daff9f8e97fe6874fbb69470b233cba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5567923939123362594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56b40f48f0463a4bbaf228380b7ca3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingSpeed: 5
+  facingRight: 1
+  health: 10
+--- !u!114 &3062542073888720716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f04dc35760741940aa8a6f18175fcdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwAttack: 0.5
+  attackPos: {fileID: 2724389874240431039}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 128
+  attackRange: 0.4
+  damage: 1
+  anim: {fileID: 1933620233273546802}
+--- !u!114 &2528856167084600419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb56f33a4ff7ea4eb860c3d34cba748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+  - {fileID: 3326053491790117976, guid: 8e8c9ca234f1da14da8d6fb3a2f56f65, type: 3}
+--- !u!114 &393669140533982169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee1ad229cd2ea145b2559d7d829e300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowDialog: {fileID: 0}
+  textDialog: {fileID: 0}
+  message: []
+  numberDialog: 0
+  button: {fileID: 0}
 --- !u!95 &1933620233273546802
 Animator:
   serializedVersion: 7

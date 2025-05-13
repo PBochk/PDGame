@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -14,10 +16,12 @@ public class Enemy : MonoBehaviour
     private Player player;
     private Animator anim;
 
+    private HealthDisplay healthDisplay;
     private void Start()
     {
         anim = GetComponent<Animator>();
         player = FindFirstObjectByType<Player>();
+        healthDisplay = FindFirstObjectByType<HealthDisplay>();
         normalSpeed = speed;
 
     }
@@ -51,6 +55,7 @@ public class Enemy : MonoBehaviour
             if (timeBtwAttack <= 0)
             {
                 anim.SetTrigger("enemyAttack");
+                Debug.Log("Attack");
             }
             timeBtwAttack -= Time.deltaTime;
         }
@@ -59,6 +64,7 @@ public class Enemy : MonoBehaviour
     public void OnEnemyAttack()
     {
         player.health -= damage;
+        healthDisplay.DamageTaken(damage);
         timeBtwAttack = startTimeBtwAttack;
         Debug.Log(player.health);
     }
