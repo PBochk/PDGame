@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1904672154512142408}
   - component: {fileID: 2912629298628139214}
-  - component: {fileID: 1138544941559313528}
   - component: {fileID: 1261735198685572918}
   m_Layer: 0
   m_Name: Blank
@@ -83,19 +82,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 14.020054, y: 8.047552}
   m_EdgeRadius: 0
---- !u!114 &1138544941559313528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722640553272279390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8930ab7afd967434b9129bda7b9d59cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blankRoom: {fileID: 1722640553272279390}
 --- !u!50 &1261735198685572918
 Rigidbody2D:
   serializedVersion: 5
@@ -1138,6 +1124,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3922952139685694716, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
       propertyPath: blankRoom
+      value: 
+      objectReference: {fileID: 1722640553272279390}
+    - target: {fileID: 3922952139685694716, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
+      propertyPath: parentRoom
       value: 
       objectReference: {fileID: 1722640553272279390}
     - target: {fileID: 4491321217217779456, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}

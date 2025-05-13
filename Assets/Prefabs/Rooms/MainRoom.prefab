@@ -2666,6 +2666,10 @@ PrefabInstance:
       value: SpawnPoint (4)
       objectReference: {fileID: 0}
     - target: {fileID: 3922952139685694716, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
+      propertyPath: id
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922952139685694716, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
       propertyPath: spawned
       value: 0
       objectReference: {fileID: 0}
@@ -2673,6 +2677,10 @@ PrefabInstance:
       propertyPath: direction
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3922952139685694716, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
+      propertyPath: parentRoom
+      value: 
+      objectReference: {fileID: 1722640553272279390}
     - target: {fileID: 4491321217217779456, guid: 5f51a522e73b6c347b519b3a07b5a09e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

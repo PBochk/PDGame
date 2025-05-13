@@ -6,6 +6,8 @@ using Unity.VisualScripting;
 
 public class RoomSpawner : MonoBehaviour
 {
+    public int id;
+    public GameObject parentRoom; 
     public GameObject blankRoom;
     public Direction direction;
 
@@ -63,16 +65,9 @@ public class RoomSpawner : MonoBehaviour
         {
             if (gameObject.GetComponent<RoomSpawner>().direction == Direction.None && !other.CompareTag("BlankRoomPoint"))
             {
-                //≈сли спавнитс€ комната поверх комнаты, удал€ет обе и оставл€ет там пустышку. ѕотенциально отрезает кусок уровн€, но лучшего выхода не придумал.
-                //ѕри попытке поставить пустышкой комнату с четырьми двер€ми крашитс€
                 Debug.Log("Room upon room");
-
-                Destroy(other.gameObject);
-                //Instantiate(blankRoom, transform.position, Quaternion.identity);
-
-                //ѕопытка перезагрузить сцену крашит игру, возможно из-за новой схемы управлени€
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); <-- крашит!
-                //UPD: игрока было два, возможно ошибка была в этом
+                Destroy(parentRoom);
+                Instantiate(blankRoom, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
         }

@@ -27,20 +27,31 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        //if (stopTime <= 0)
-        //{
-        //    speed = normalSpeed;
-        //}
-        //else
-        //{
-        //    speed = 0;
-        //    stopTime -= Time.deltaTime;
-        //}
+        if (stopTime <= 0)
+        {
+            speed = normalSpeed;
+        }
+        else
+        {
+            speed = 0;
+            stopTime -= Time.deltaTime;
+        }
+
         if (health <= 0)
         {
             Destroy(gameObject);
         }
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+
+        if (player.transform.position.x > transform.position.x)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)
