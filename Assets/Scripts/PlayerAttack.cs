@@ -16,13 +16,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
+                Debug.Log("ÏÊÌ");
                 anim.SetTrigger("attack");
                 OnAttack();
             }
             timeBtwAttack = startTimeBtwAttack;
-
         }
         timeBtwAttack -= Time.deltaTime;
     }

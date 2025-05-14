@@ -7,14 +7,17 @@ public class Dialog : MonoBehaviour
     public GameObject windowDialog;
     public TextMeshProUGUI textDialog;
     public TextMeshProUGUI speakerName;
+    public Image portrait;
+
     public string[] message;
     public string[] names;
-    public int numberDialog = 0;
+    public Sprite[] portraits;
+    private int numberDialog = 0;
     public Button button;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             if (numberDialog == message.Length - 1)
             {
@@ -29,12 +32,15 @@ public class Dialog : MonoBehaviour
             windowDialog.SetActive(true);
             textDialog.text = message[numberDialog];
             speakerName.text = names[numberDialog];
+            portrait.sprite = portraits[numberDialog];
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+
+
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             windowDialog.SetActive(false);
             numberDialog = 0;
@@ -47,6 +53,7 @@ public class Dialog : MonoBehaviour
         numberDialog++;
         textDialog.text = message[numberDialog];
         speakerName.text = names[numberDialog];
+        portrait.sprite = portraits[numberDialog];
         if (numberDialog == message.Length - 1)
         {
             button.gameObject.SetActive(false);

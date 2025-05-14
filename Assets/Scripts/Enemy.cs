@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour
 
     public int health;
     public float speed;
-    public int damage;
+    public int enemyDamage;
     private float stopTime = 0;
     public float startStopTime;
     public float normalSpeed;
     private Player player;
     private Animator anim;
+    private AddRoom room;
 
     private HealthDisplay healthDisplay;
     private void Start()
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         player = FindFirstObjectByType<Player>();
         healthDisplay = FindFirstObjectByType<HealthDisplay>();
         normalSpeed = speed;
+        room = GetComponentInParent<AddRoom>();
 
     }
     private void Update()
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            room.enemies.Remove(gameObject);
         }
 
         if (player.transform.position.x > transform.position.x)
@@ -59,6 +62,7 @@ public class Enemy : MonoBehaviour
         stopTime = startStopTime;
         health -= damage;
     }
+
     public void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -74,8 +78,8 @@ public class Enemy : MonoBehaviour
 
     public void OnEnemyAttack()
     {
-        player.health -= damage;
-        healthDisplay.DamageTaken(damage);
+        player.health -= enemyDamage;
+        healthDisplay.DamageTaken(enemyDamage);
         timeBtwAttack = startTimeBtwAttack;
         Debug.Log(player.health);
     }

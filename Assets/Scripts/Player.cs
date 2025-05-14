@@ -1,5 +1,5 @@
 using TMPro;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
 
     private Animator anim;
     public int health;
-
-    
 
     private void Start()
     {

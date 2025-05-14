@@ -15,7 +15,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: RoomPoint
-  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64691d27ca068a944afaf401e29b39c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  parentRoom: {fileID: 0}
   blankRoom: {fileID: 1722640553272279390, guid: 5bd68515d041cb640b1646adbd23a3c8, type: 3}
   direction: 4
   spawned: 1
