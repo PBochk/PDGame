@@ -24,7 +24,7 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
 
     [SerializeField]
-    private bool spawned = false;
+    //private bool spawned = false;
 
     private void Start()
     {

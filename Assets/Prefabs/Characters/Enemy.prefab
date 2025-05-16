@@ -182,12 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef89a868220410f4d8d6dea7e85a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 2
   health: 200
   speed: 2
   enemyDamage: 40
-  startStopTime: 0.3
-  normalSpeed: 1
+  meleeAttackCooldown: 1
+  stunTime: 0.25
 --- !u!95 &8093772597977404450
 Animator:
   serializedVersion: 7

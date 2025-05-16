@@ -14,13 +14,13 @@ public class AddRoom : MonoBehaviour
 
     [HideInInspector] public List<GameObject> enemies;
 
-    private RoomVariants variants;
+    //private RoomVariants variants;
     private bool spawned;
-    private bool wallsDestroyed;
+    //private bool wallsDestroyed;
 
     private void Start()
     {
-        variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
+        //variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,7 +43,6 @@ public class AddRoom : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => enemies.Count == 0);
-        Debug.Log(enemies.Count);
         DestroyWalls();
     }
 
@@ -57,7 +56,7 @@ public class AddRoom : MonoBehaviour
                 Destroy(wall);
             }
         }
-        wallsDestroyed = true;
+        //wallsDestroyed = true;
     }
 
     //private void OnTriggerStay2D(Collider2D other)

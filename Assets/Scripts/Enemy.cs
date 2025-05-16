@@ -5,14 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private float timeBtwAttack;
-    public float startTimeBtwAttack;
 
-    public int health;
-    public float speed;
-    public int enemyDamage;
-    private float stopTime = 0;
-    public float startStopTime;
-    public float normalSpeed;
+    [Header("Enemy Stats")]
+    public int health; // Здоровье
+    public float speed; // Скорость передвижения
+    private float currentSpeed = 0; 
+    public int enemyDamage; // Урон ближней атаки
+    public float meleeAttackCooldown; // Время восстановления одной ближней атаки в секундах
+    public float stunTime; // Время оглушения врага после получения им урона P.S. Сделал, потому что смог. Опциональный параметр.
+    private float currentStunTime = 0;
+
+
     private Player player;
     private Animator anim;
     private AddRoom room;
@@ -23,20 +26,19 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         player = FindFirstObjectByType<Player>();
         healthDisplay = FindFirstObjectByType<HealthDisplay>();
-        normalSpeed = speed;
         room = GetComponentInParent<AddRoom>();
-
     }
+
     private void Update()
     {
-        if (stopTime <= 0)
+        if (currentStunTime <= 0)
         {
-            speed = normalSpeed;
+            currentSpeed = speed;
         }
         else
         {
-            speed = 0;
-            stopTime -= Time.deltaTime;
+            currentSpeed = 0;
+            currentStunTime -= Time.deltaTime;
         }
 
         if (health <= 0)
@@ -54,12 +56,12 @@ public class Enemy : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)
     {
-        stopTime = startStopTime;
+        currentStunTime = stunTime;
         health -= damage;
     }
 
@@ -70,7 +72,6 @@ public class Enemy : MonoBehaviour
             if (timeBtwAttack <= 0)
             {
                 anim.SetTrigger("enemyAttack");
-                Debug.Log("Attack");
             }
             timeBtwAttack -= Time.deltaTime;
         }
@@ -80,7 +81,6 @@ public class Enemy : MonoBehaviour
     {
         player.health -= enemyDamage;
         healthDisplay.DamageTaken(enemyDamage);
-        timeBtwAttack = startTimeBtwAttack;
-        Debug.Log(player.health);
+        timeBtwAttack = meleeAttackCooldown;
     }
 }

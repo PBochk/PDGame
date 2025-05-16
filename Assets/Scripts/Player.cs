@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
-    [SerializeField] private float movingSpeed = 10f;
 
     private Rigidbody2D rb;
     public GameInput GameInput { get; private set; }
@@ -15,6 +14,9 @@ public class Player : MonoBehaviour
     public bool facingRight = true;
 
     private Animator anim;
+
+    [Header("Player Stats")]
+    [SerializeField] private float movingSpeed = 10f;
     public int health;
 
     private void Start()

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,7 +6,9 @@ public class HealthDisplay : MonoBehaviour
 {
     private int health;
     public Text healthDisplay;
+
     private Player player;
+
     private void Start()
     {
         player = FindFirstObjectByType<Player>();

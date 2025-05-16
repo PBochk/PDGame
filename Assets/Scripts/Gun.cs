@@ -5,9 +5,16 @@ public class Gun : MonoBehaviour
     public float offset;
     public GameObject bullet;
     public Transform shotPoint;
+    private PlayerRangeAttack rangeAttack;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
+
+    private void Start()
+    {
+        rangeAttack = FindFirstObjectByType<PlayerRangeAttack>();
+        startTimeBtwShots = rangeAttack.shotCooldown;
+    }
 
     void Update()
     {
