@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Range Weapon Stats")]
     private float speed;
-    private float lifetime = 1; //Пока не добавлено
+    //private float lifetime = 1; //Пока не добавлено
     private float distance;
     private int damage;
 

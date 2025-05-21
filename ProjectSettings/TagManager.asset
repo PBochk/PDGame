@@ -13,6 +13,10 @@ TagManager:
   - Enemy
   - EmptyRoom
   - BlankRoom
+  - Character
+  - DialogueUI
+  - WindowDialogue
+  - TriviaDialogue
   layers:
   - Default
   - TransparentFX

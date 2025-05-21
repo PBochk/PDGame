@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3062542073888720716}
   - component: {fileID: 2528856167084600419}
   - component: {fileID: 1933620233273546802}
+  - component: {fileID: 7082377170960016864}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -184,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56b40f48f0463a4bbaf228380b7ca3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 3
   facingRight: 1
+  movingSpeed: 3
   health: 200
 --- !u!114 &3062542073888720716
 MonoBehaviour:
@@ -243,6 +244,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7082377170960016864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e659c0c079d19394fb892b7051991b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 10
+  damage: 40
+  shotCooldown: 0.5
 --- !u!1001 &200582247428088453
 PrefabInstance:
   m_ObjectHideFlags: 0

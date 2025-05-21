@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 
 public class RoomSpawner : MonoBehaviour
 {
-    public int id;
     public GameObject parentRoom; 
     public GameObject blankRoom;
     public Direction direction;
@@ -23,8 +22,6 @@ public class RoomSpawner : MonoBehaviour
     private RoomVariants variants;
     private int rand;
 
-    [SerializeField]
-    //private bool spawned = false;
 
     private void Start()
     {

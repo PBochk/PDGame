@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AddRoom : MonoBehaviour
@@ -14,9 +15,12 @@ public class AddRoom : MonoBehaviour
 
     [HideInInspector] public List<GameObject> enemies;
 
+    public GameObject chest;
+    //public Transform chestSpawner;
+
     //private RoomVariants variants;
     private bool spawned;
-    //private bool wallsDestroyed;
+    //private bool roomCleared;
 
     private void Start()
     {
@@ -44,27 +48,24 @@ public class AddRoom : MonoBehaviour
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => enemies.Count == 0);
         DestroyWalls();
+        SpawnReward();
     }
 
 
     public void DestroyWalls()
     {
-        foreach(GameObject wall in walls)
+        foreach (GameObject wall in walls)
         {
             if (wall != null && wall.transform.childCount != 0)
             {
                 Destroy(wall);
             }
         }
-        //wallsDestroyed = true;
+        //roomCleared = true;
     }
-
-    //private void OnTriggerStay2D(Collider2D other)
-    //{
-    //    if(wallsDestroyed && other.CompareTag("Wall"))
-    //    {
-    //        //Destroy(other.gameObject);
-    //    }
-    //}
     
+    public void SpawnReward()
+    {
+        chest.SetActive(true);
+    }
 }

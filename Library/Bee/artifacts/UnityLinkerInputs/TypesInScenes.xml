@@ -3,15 +3,20 @@
 		<type fullname="AddRoom" preserve="nothing"/>
 		<type fullname="Bullet" preserve="nothing"/>
 		<type fullname="ChangeRoom" preserve="nothing"/>
+		<type fullname="Chest" preserve="nothing"/>
 		<type fullname="Dialog" preserve="nothing"/>
+		<type fullname="DialogueUI" preserve="nothing"/>
 		<type fullname="Enemy" preserve="nothing"/>
 		<type fullname="GameInput" preserve="nothing"/>
 		<type fullname="Gun" preserve="nothing"/>
 		<type fullname="HealthDisplay" preserve="nothing"/>
 		<type fullname="Player" preserve="nothing"/>
-		<type fullname="PlayerAttack" preserve="nothing"/>
+		<type fullname="PlayerMeleeAttack" preserve="nothing"/>
+		<type fullname="PlayerRangeAttack" preserve="nothing"/>
 		<type fullname="RoomSpawner" preserve="nothing"/>
 		<type fullname="RoomVariants" preserve="nothing"/>
+		<type fullname="TriviaDialogue" preserve="nothing"/>
+		<type fullname="TriviaUI" preserve="nothing"/>
 		<type fullname="Wall" preserve="nothing"/>
 		<type fullname="WeaponSwitch" preserve="nothing"/>
 	</assembly>
