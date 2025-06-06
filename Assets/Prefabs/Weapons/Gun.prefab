@@ -133,6 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 360
-  bullet: {fileID: 1564493031453032475, guid: ed5ba757e98459f40a87802384c15504, type: 3}
+  bulletObject: {fileID: 1564493031453032475, guid: ed5ba757e98459f40a87802384c15504, type: 3}
   shotPoint: {fileID: 895332795417610858}
-  startTimeBtwShots: 0.3
+  shotCooldown: 0

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,9 +24,19 @@ public class TriviaDialogue : MonoBehaviour
     public string rightText;
     public string wrongText;
 
-    public Chest chest;
+    public GameObject mentorWrong;
+    private Dialog mentorWrongDialogue;
+    public GameObject mentorRight;
+    private Dialog mentorRightDialogue;
+
+    public bool isRightAnswer;
+
+    public List<GameObject> rewards;
+
     private void Start()
     {
+        mentorWrongDialogue = mentorWrong.GetComponent<Dialog>();
+        mentorRightDialogue = mentorRight.GetComponent<Dialog>();
         var tUI = GameObject.FindGameObjectWithTag("TriviaDialogue").GetComponent<TriviaUI>();
         windowDialog = tUI.windowDialog;
         question = tUI.question;
@@ -54,19 +66,22 @@ public class TriviaDialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            rightButton.gameObject.SetActive(true);
-            wrongButton.gameObject.SetActive(true);
-
-            rightButton.onClick.AddListener(RightAnswer);
-            wrongButton.onClick.AddListener(WrongAnswer);
-   
-
-            windowDialog.SetActive(true);
-            question.text = qstText;
-            rightAnswer.text = righAnsText;
-            wrongAnswer.text = wrongAnsText;
-            
+            StartTrivia();            
         }
+    }
+
+    public void StartTrivia()
+    {
+        rightButton.gameObject.SetActive(true);
+        wrongButton.gameObject.SetActive(true);
+
+        rightButton.onClick.AddListener(RightAnswer);
+        wrongButton.onClick.AddListener(WrongAnswer);
+
+        windowDialog.SetActive(true);
+        question.text = qstText;
+        rightAnswer.text = righAnsText;
+        wrongAnswer.text = wrongAnsText;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -83,40 +98,48 @@ public class TriviaDialogue : MonoBehaviour
 
     public void WrongAnswer()
     {
+        isRightAnswer = false;
         question.text = wrongText;
         rightButton.onClick.RemoveAllListeners();
         wrongButton.onClick.RemoveAllListeners();
+        rightButton.gameObject.SetActive(false);
+        wrongButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(true);
-        reset.text = "Давай по-новой, Миша";
+        reset.text = "Помощь!";
         resetButton.onClick.AddListener(ResetQuestion);
     }
 
     public void ResetQuestion()
     {
-        question.text = qstText;
-        rightAnswer.text = righAnsText;
-        wrongAnswer.text = wrongAnsText;
-        rightButton.onClick.AddListener(RightAnswer);
-        wrongButton.onClick.AddListener(WrongAnswer);
         resetButton.onClick.RemoveAllListeners();
         resetButton.gameObject.SetActive(false);
+        windowDialog.SetActive(false);
+        if (isRightAnswer)
+            mentorRightDialogue.StartDialogue();
+        else
+            mentorWrongDialogue.StartDialogue();
     }
+
 
     public void RightAnswer()
     {
+        isRightAnswer = true;
         question.text = rightText;
         rightButton.onClick.RemoveAllListeners();
         wrongButton.onClick.RemoveAllListeners();
         rightButton.gameObject.SetActive(false);
         wrongButton.gameObject.SetActive(false);
         resetButton.gameObject.SetActive(true);
-        reset.text = "Aaan open!";
-        resetButton.onClick.AddListener(SpawnChest);
+        reset.text = "Открыть";
+        resetButton.onClick.AddListener(ResetQuestion);
     }
 
     public void SpawnChest()
     {
-        chest.Spawn(transform.position);
+        var rewards = GameObject.FindGameObjectWithTag("Rewards").GetComponent<RewardPool>().rewardPool;
+        var reward = rewards[Random.Range(0, rewards.Count)];
+        rewards.Remove(reward);
+        Instantiate(reward, transform.position, Quaternion.identity);
         resetButton.onClick.RemoveAllListeners();
         resetButton.gameObject.SetActive(false);
         Destroy(gameObject);

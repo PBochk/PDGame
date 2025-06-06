@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_0": -6442445987000189239
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_1": -772030246684095834
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_2": 4814073532067244613
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_3": 669712555205741846
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_4": 1087582452545796052
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_5": 8389688116238188819
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_6": 8321674098944493349
+      "\u0444\u0430\u0435\u0440\u0432\u043E\u043B Idle-Sheet_7": -4455323038490988473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

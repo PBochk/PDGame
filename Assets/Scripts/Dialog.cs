@@ -16,8 +16,13 @@ public class Dialog : MonoBehaviour
     public Sprite[] portraits;
     private int numberDialog = 0;
 
+    public bool dialogueEnded;
 
-    void Start()
+    private void Start()
+    {
+        Initialize();
+    }
+    void Initialize()
     {
         speaker = gameObject;
         var diUI = GameObject.FindGameObjectWithTag("DialogueUI").GetComponent<DialogueUI>();
@@ -26,49 +31,68 @@ public class Dialog : MonoBehaviour
         speakerName = diUI.speakerName;
         portrait = diUI.portrait;
         button = diUI.button;
+
+        numberDialog = 0;
+        dialogueEnded = false;
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-
-            button.gameObject.SetActive(true);
-            button.onClick.AddListener(NextDialog);
-
-            if (numberDialog == message.Length - 1 && !speaker.CompareTag("Character"))
-            {
-                button.gameObject.SetActive(false);
-            }
-
-            windowDialog.SetActive(true);
-            textDialog.text = message[numberDialog];
-            speakerName.text = names[numberDialog];
-            portrait.sprite = portraits[numberDialog];
+            StartDialogue();
         }
     }
 
+    public void StartDialogue()
+    {
+        Initialize();
+        button.gameObject.SetActive(true);
+        button.onClick.AddListener(NextDialog);
 
+        windowDialog.SetActive(true);
+        textDialog.text = message[numberDialog];
+        speakerName.text = names[numberDialog];
+        portrait.sprite = portraits[numberDialog];
+    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             windowDialog.SetActive(false);
-            numberDialog = 0;
-            button.onClick.RemoveAllListeners();
         }
     }
 
     public void NextDialog()
     {
-        if (numberDialog == message.Length - 1 && speaker.CompareTag("Character"))
+        
+        if (numberDialog == message.Length - 1)
         {
-            Destroy(speaker);
+            if (speaker.CompareTag("Character"))
+            {
+                speaker.SetActive(false);
+            }
+            else
+            {
+                windowDialog.SetActive(false);
+                var trivia = GameObject.FindGameObjectWithTag("Trivia").GetComponent<TriviaDialogue>();
+                if (trivia.isRightAnswer)
+                    trivia.SpawnChest();
+                else
+                    trivia.StartTrivia();
+            }
+            dialogueEnded = true;
+            button.onClick.RemoveAllListeners();
         }
-        numberDialog++;
-        textDialog.text = message[numberDialog];
-        speakerName.text = names[numberDialog];
-        portrait.sprite = portraits[numberDialog];
+
+        if (!dialogueEnded)
+        {
+            numberDialog++;
+            textDialog.text = message[numberDialog];
+            speakerName.text = names[numberDialog];
+            portrait.sprite = portraits[numberDialog];
+        }
     }
 }

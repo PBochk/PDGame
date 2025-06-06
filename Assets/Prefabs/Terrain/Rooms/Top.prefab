@@ -130,12 +130,14 @@ MonoBehaviour:
   walls:
   - {fileID: 2743092375287377136}
   enemyTypes:
+  - {fileID: 6932280251631969414, guid: ca1eac78e03ab044c90e94439399cef1, type: 3}
   - {fileID: 6932280251631969414, guid: 3d909e98fb0f9eb4fb321cd2e5645dfa, type: 3}
   enemySpawners:
   - {fileID: 4046945482924276261}
   - {fileID: 4897986178010238888}
   - {fileID: 211238004540898204}
   enemies: []
+  spawnEffect: {fileID: 5594217137675591852, guid: 73e033359db76494bba801ceb9d71be8, type: 3}
 --- !u!1 &8654232350067494100
 GameObject:
   m_ObjectHideFlags: 0

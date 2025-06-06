@@ -17,6 +17,17 @@ TagManager:
   - DialogueUI
   - WindowDialogue
   - TriviaDialogue
+  - FailedDialCharacter
+  - Trivia
+  - Trivias
+  - PlayerBullet
+  - Undefined
+  - PlayerGun
+  - EnemyGun
+  - SpawnEffect
+  - SkillUI
+  - Bomb
+  - Rewards
   layers:
   - Default
   - TransparentFX
@@ -26,7 +37,7 @@ TagManager:
   - UI
   - Solid
   - Enemy
-  - 
+  - Player
   - 
   - 
   - 

@@ -4,33 +4,62 @@ public class Bullet : MonoBehaviour
 {
     public LayerMask whatIsSolid;
 
-    private PlayerRangeAttack rangeAttack;
-
     [Header("Range Weapon Stats")]
-    private float speed;
-    //private float lifetime = 1; //Пока не добавлено
-    private float distance;
-    private int damage;
+    public float speed;
+    public float lifetime = 1f;
+    public float distance;
+    public int damage;
 
+    //public BulletType bulletType;
+    public Enemy enemyShooter;
+
+    //public enum BulletType
+    //{
+    //    None,
+    //    PlayerBullet,
+    //    EnemyBullet
+    //}
     private void Start()
     {
-        rangeAttack = FindFirstObjectByType<PlayerRangeAttack>();
-        speed = rangeAttack.bulletSpeed;
-        damage = rangeAttack.damage;
+        Invoke("DestroyBullet", lifetime);
     }
-
 
     private void Update()
     {
+        
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+
         if (hitInfo.collider != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            switch (hitInfo.collider.tag)
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
-            }
+                case "Enemy":
+                {
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                    break;
+                }
+                case "Player":
+                {
+                    var player = hitInfo.collider.GetComponent<Player>();
+                    var isRedirected = player.GetComponent<PlayerSkills>().isRedirectOn;
+                    if (!isRedirected)
+                    {
+                        player.ChangeHealth(-damage);
+                    }
+                    else if (enemyShooter != null)
+                    {
+                        enemyShooter.TakeDamage(damage);
+                    }
+                    break;
+                }
+            }           
             Destroy(gameObject);
         }
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+
+    private void DestroyBullet()
+    {
+        Destroy(gameObject);
     }
 }

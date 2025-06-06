@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 4925871328150540799}
   - component: {fileID: 7442517730943444935}
   - component: {fileID: 4549767334139579591}
-  - component: {fileID: 253230485889929966}
   - component: {fileID: 5567923939123362594}
   - component: {fileID: 3062542073888720716}
-  - component: {fileID: 2528856167084600419}
+  - component: {fileID: 6194270462424524974}
+  - component: {fileID: -8945482913490797658}
+  - component: {fileID: 253230485889929966}
   - component: {fileID: 1933620233273546802}
-  - component: {fileID: 7082377170960016864}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -161,18 +161,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0020953326, y: -0.020025868}
   m_Size: {x: 0.28361702, y: 0.53074586}
   m_Direction: 0
---- !u!114 &253230485889929966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629070677225685557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daff9f8e97fe6874fbb69470b233cba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5567923939123362594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +176,8 @@ MonoBehaviour:
   facingRight: 1
   movingSpeed: 3
   health: 200
+  maxHealth: 200
+  isRedirectOn: 0
 --- !u!114 &3062542073888720716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +198,8 @@ MonoBehaviour:
   attackCooldown: 0.8
   attackRange: 0.36
   damage: 100
---- !u!114 &2528856167084600419
+  timeBtwAttack: 0
+--- !u!114 &6194270462424524974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,11 +208,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 7629070677225685557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb56f33a4ff7ea4eb860c3d34cba748, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c0c6cbfb66062f4e9c24640a1e7e829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+  shotCooldown: 0.5
+  damage: 25
+  bulletSpeed: 10
+  lifetime: 1
+--- !u!114 &-8945482913490797658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141edbd5023af264799077e59af94b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+--- !u!114 &253230485889929966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daff9f8e97fe6874fbb69470b233cba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1933620233273546802
 Animator:
   serializedVersion: 7
@@ -244,21 +262,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7082377170960016864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7629070677225685557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e659c0c079d19394fb892b7051991b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 10
-  damage: 40
-  shotCooldown: 0.5
 --- !u!1001 &200582247428088453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,6 +270,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3803397312936070669}
     m_Modifications:
+    - target: {fileID: 405711701309051409, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 895332795417610858, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.035
@@ -280,8 +287,16 @@ PrefabInstance:
       value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326053491790117976, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+      propertyPath: m_TagString
+      value: PlayerGun
       objectReference: {fileID: 0}
     - target: {fileID: 3904779767708798327, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
       propertyPath: m_LocalScale.x
@@ -335,6 +350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7629394132768060468, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
+      propertyPath: bulletObject
+      value: 
+      objectReference: {fileID: 1564493031453032475, guid: ed5ba757e98459f40a87802384c15504, type: 3}
     - target: {fileID: 7629394132768060468, guid: 1c5487f0880c98e4a9a94a11e6ec2d42, type: 3}
       propertyPath: startTimeBtwShots
       value: 0.5
@@ -438,6 +457,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6672493308107515287, guid: 29197c95f49687f4d94d565e4393e4e2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672493308107515287, guid: 29197c95f49687f4d94d565e4393e4e2, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -448,6 +471,10 @@ PrefabInstance:
     - target: {fileID: 9139132654324971444, guid: 29197c95f49687f4d94d565e4393e4e2, type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139132654324971444, guid: 29197c95f49687f4d94d565e4393e4e2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9139132654324971444, guid: 29197c95f49687f4d94d565e4393e4e2, type: 3}
       propertyPath: m_IsActive

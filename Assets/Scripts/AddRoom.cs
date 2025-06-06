@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.InputSystem.Android.LowLevel.AndroidGameControllerState;
 
 public class AddRoom : MonoBehaviour
 {
@@ -15,42 +16,59 @@ public class AddRoom : MonoBehaviour
 
     [HideInInspector] public List<GameObject> enemies;
 
-    public GameObject chest;
-    //public Transform chestSpawner;
-
-    //private RoomVariants variants;
+    private GameObject[] trivias;
     private bool spawned;
-    //private bool roomCleared;
+
+    private int currentWave = 0;
+    private int waves = 3;
+
+
+    public GameObject spawnEffect;
 
     private void Start()
     {
-        //variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
+        trivias = GameObject.FindGameObjectWithTag("Trivias").GetComponent<TriviaVariants>().trivias;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!spawned && other.CompareTag("Player"))
         {
-            foreach (Transform spawner in enemySpawners)
-            {
-                GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
-                GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
-                enemy.transform.parent = transform;
-                enemies.Add(enemy);
-            }
-            spawned = true;
+            SpawnEnemies();
             StartCoroutine(CheckEnemies());
+            spawned = true;
         }
     }
 
     IEnumerator CheckEnemies()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         yield return new WaitUntil(() => enemies.Count == 0);
-        DestroyWalls();
-        SpawnReward();
+        yield return new WaitForSeconds(1f);
+        if (currentWave == waves - 1)
+        {
+            DestroyWalls();
+            SpawnReward();
+        }
+        else
+        {
+            currentWave++;
+            SpawnEnemies();
+            StartCoroutine(CheckEnemies());
+        }
     }
 
+    public void SpawnEnemies()
+    {
+        foreach (Transform spawner in enemySpawners)
+        {
+            GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
+            GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+            Instantiate(spawnEffect, enemy.transform.position, Quaternion.identity);
+            enemy.transform.parent = transform;
+            enemies.Add(enemy);
+        }
+    }
 
     public void DestroyWalls()
     {
@@ -61,11 +79,10 @@ public class AddRoom : MonoBehaviour
                 Destroy(wall);
             }
         }
-        //roomCleared = true;
     }
     
     public void SpawnReward()
     {
-        chest.SetActive(true);
+        Instantiate(trivias[0], enemySpawners[0].transform.position,  Quaternion.identity);
     }
 }

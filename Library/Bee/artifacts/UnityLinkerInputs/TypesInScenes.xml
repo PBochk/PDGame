@@ -3,7 +3,6 @@
 		<type fullname="AddRoom" preserve="nothing"/>
 		<type fullname="Bullet" preserve="nothing"/>
 		<type fullname="ChangeRoom" preserve="nothing"/>
-		<type fullname="Chest" preserve="nothing"/>
 		<type fullname="Dialog" preserve="nothing"/>
 		<type fullname="DialogueUI" preserve="nothing"/>
 		<type fullname="Enemy" preserve="nothing"/>
