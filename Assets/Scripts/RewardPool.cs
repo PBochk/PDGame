@@ -5,4 +5,5 @@ using UnityEngine;
 public class RewardPool : MonoBehaviour
 {
     public List<GameObject> rewardPool;
+    public List<GameObject> receivedRewards;
 }

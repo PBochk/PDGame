@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerSkills : MonoBehaviour
@@ -9,12 +9,20 @@ public class PlayerSkills : MonoBehaviour
     public Dictionary<SkillName, Skill> skills;
     public bool isRedirectOn = false;
     public bool isOverloadOn = false;
+    public bool hasBackup = false;
     private Player player;
+    private PlayerUI healthDisplay;
+
     private GameObject temp;
+    private GameObject backup;
+    private GameObject cam;
+    private Vector3 camPos;
     private void Start()
     {
         skills = new();
         player = FindFirstObjectByType<Player>();
+        healthDisplay = FindFirstObjectByType<PlayerUI>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     private void Update()
@@ -32,20 +40,23 @@ public class PlayerSkills : MonoBehaviour
     {
         if (skill.currentCooldown <= 0)
         {
-            if (skill.currentDuration > 0)
+            if (!skill.isActive && Input.GetKeyDown(skill.keyCode))
             {
-                if (!skill.isActive && Input.GetKeyDown(skill.keyCode))
-                {
-                    SetSkillOn(skill);
-                }
-                skill.currentDuration -= Time.deltaTime;
+                SetSkillOn(skill);
             }
             else if (skill.isActive)
             {
-                SetSkillOff(skill);
+                if (skill.currentDuration <= 0)
+                {
+                    SetSkillOff(skill);
+                }
+                else
+                {
+                    skill.currentDuration -= Time.deltaTime;
+                }
             }
         }
-        else if (skill.currentCooldown > 0) 
+        else
         {
             skill.currentCooldown -= Time.deltaTime;
         }
@@ -54,6 +65,7 @@ public class PlayerSkills : MonoBehaviour
     public void SetSkillOn(Skill skill)
     {
         skill.isActive = true;
+        Debug.Log(skill.skillName);
         switch (skill.skillName)
         {
             case SkillName.Redirect:
@@ -68,9 +80,18 @@ public class PlayerSkills : MonoBehaviour
                 }
             case SkillName.Bomb:
                 {
-                    Debug.Log("bomb");
                     skill.spawnPosition = player.transform.position;
                     temp = Instantiate(skill.skillObject.gameObject, player.transform.position, Quaternion.identity);
+                    break;
+                }
+            case SkillName.Backup:
+                {
+                    if(!hasBackup)
+                    {
+                        backup = Instantiate(skill.skillObject.gameObject, player.transform.position, Quaternion.identity);
+                    }
+                    hasBackup = true;
+                    camPos = cam.transform.position;
                     break;
                 }
         }
@@ -99,6 +120,10 @@ public class PlayerSkills : MonoBehaviour
                     StartCoroutine(WaitForExplosion(skill));
                     break;
                 }
+            case SkillName.Backup:
+                {
+                    break;
+                }
         }
     }
 
@@ -119,12 +144,13 @@ public class PlayerSkills : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
+    public void Revive()
     {
-        if (skills[SkillName.Bomb] != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(skills[SkillName.Bomb].spawnPosition, skills[SkillName.Bomb].range);
-        }
+        Debug.Log("этоябэкап");
+        healthDisplay.HealthChanged();
+        hasBackup = false;
+        player.transform.position = backup.transform.position;
+        Destroy(backup);
+        cam.transform.position = camPos;
     }
 }

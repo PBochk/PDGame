@@ -142,6 +142,7 @@ MonoBehaviour:
   - {fileID: 2819143907011335536}
   enemies: []
   spawnEffect: {fileID: 5594217137675591852, guid: 73e033359db76494bba801ceb9d71be8, type: 3}
+  portal: {fileID: 3905723046241474154, guid: cf1d151c2c7f94a419d1935dc97221b9, type: 3}
 --- !u!1 &8654232350067494100
 GameObject:
   m_ObjectHideFlags: 0

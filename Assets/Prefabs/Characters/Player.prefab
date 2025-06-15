@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3062542073888720716}
   - component: {fileID: 6194270462424524974}
   - component: {fileID: -8945482913490797658}
+  - component: {fileID: 7472504117336033812}
   - component: {fileID: 253230485889929966}
   - component: {fileID: 1933620233273546802}
   m_Layer: 8
@@ -175,9 +176,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   movingSpeed: 3
+  currentSpeed: 0
   health: 200
   maxHealth: 200
-  isRedirectOn: 0
+  currentXP: 0
+  isLvlUp: 0
 --- !u!114 &3062542073888720716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +230,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141edbd5023af264799077e59af94b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills: []
+  isRedirectOn: 0
+  isOverloadOn: 0
+  hasBackup: 0
+--- !u!114 &7472504117336033812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629070677225685557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80bf28cb60a632d46b0d276b95c7aa48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perks: []
 --- !u!114 &253230485889929966
 MonoBehaviour:
   m_ObjectHideFlags: 0

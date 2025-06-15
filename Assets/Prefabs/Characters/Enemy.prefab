@@ -184,10 +184,11 @@ MonoBehaviour:
   health: 200
   speed: 2
   enemyDamage: 40
-  meleeAttackCooldown: 1
+  meleeAttackCooldown: 5
   stunTime: 0.25
   isRanged: 0
   knockback: 2
+  xp: 20
 --- !u!95 &8093772597977404450
 Animator:
   serializedVersion: 7

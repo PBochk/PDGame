@@ -28,6 +28,14 @@ TagManager:
   - SkillUI
   - Bomb
   - Rewards
+  - LoadingScreen
+  - Perk
+  - RewardUI
+  - PauseUI
+  - Fail
+  - Portal
+  - Win
+  - FirstRoom
   layers:
   - Default
   - TransparentFX

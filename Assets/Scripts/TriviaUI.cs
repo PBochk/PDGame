@@ -12,4 +12,9 @@ public class TriviaUI : MonoBehaviour
     public Button button1;
     public Button button2;
     public Button resetButton;
+    public Animator animator;
+    public void EndTriviaDialogue()
+    {
+        windowDialog.SetActive(false);
+    }
 }

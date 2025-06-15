@@ -9,4 +9,10 @@ public class DialogueUI : MonoBehaviour
     public TextMeshProUGUI speakerName;
     public Image portrait;
     public Button button;
+    public Animator animator;
+
+    public void EndDialogue()
+    {
+        windowDialog.SetActive(false);
+    }
 }

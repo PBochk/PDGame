@@ -1,9 +1,9 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.InputSystem.Android.LowLevel.AndroidGameControllerState;
 
 public class AddRoom : MonoBehaviour
 {
@@ -16,18 +16,22 @@ public class AddRoom : MonoBehaviour
 
     [HideInInspector] public List<GameObject> enemies;
 
-    private GameObject[] trivias;
+    private TriviaVariants trivias;
     private bool spawned;
 
     private int currentWave = 0;
-    private int waves = 3;
-
+    private int waves = 1;
+    private int XPToEnd = 0;
 
     public GameObject spawnEffect;
 
+    private Player player;
+
+    public GameObject portal;
     private void Start()
     {
-        trivias = GameObject.FindGameObjectWithTag("Trivias").GetComponent<TriviaVariants>().trivias;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        trivias = GameObject.FindGameObjectWithTag("Trivias").GetComponent<TriviaVariants>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -48,7 +52,15 @@ public class AddRoom : MonoBehaviour
         if (currentWave == waves - 1)
         {
             DestroyWalls();
-            SpawnReward();
+            if (trivias.spawnedTrivias.Count < 5)
+            {
+                SpawnTrivia();
+            }
+            if (!trivias.isPortalSpawned)
+            {
+                CheckXP();
+                trivias.isPortalSpawned = true;
+            }
         }
         else
         {
@@ -81,8 +93,24 @@ public class AddRoom : MonoBehaviour
         }
     }
     
-    public void SpawnReward()
+    public void SpawnTrivia()
     {
-        Instantiate(trivias[0], enemySpawners[0].transform.position,  Quaternion.identity);
+        var rand = Random.Range(0, 2);
+        if (trivias.spawnedTrivias.Count == 0 || rand == 1)
+        {
+            var trivia = trivias.trivias[Random.Range(0, trivias.trivias.Count)];
+            trivias.spawnedTrivias.Add(trivia.GetComponent<TriviaDialogue>());
+            trivias.trivias.Remove(trivia);
+            Instantiate(trivia, enemySpawners[0].transform.position,  Quaternion.identity);
+        }
+    }
+
+    public void CheckXP()
+    {
+        if (player.currentXP >= XPToEnd)
+        {
+            var firstRoom = FindFirstObjectByType<RoomVariants>().GetComponent<RoomVariants>().rooms[0];
+            Instantiate(portal, firstRoom.transform.position, Quaternion.identity);
+        }
     }
 }

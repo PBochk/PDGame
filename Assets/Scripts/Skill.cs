@@ -1,4 +1,5 @@
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,10 +11,10 @@ public class Skill : MonoBehaviour
     [HideInInspector] public float currentDuration;
     public float cooldown;
     [HideInInspector] public float currentCooldown = 0;
-    [HideInInspector] public bool isActive;
+    [HideInInspector] public bool isActive = false;
     public KeyCode keyCode;
     public string description;
-    private SkillUI skillUI;
+    private RewardUI skillUI;
     public GameObject skillObject;
     public GameObject effect;
     public LayerMask enemy;
@@ -23,7 +24,7 @@ public class Skill : MonoBehaviour
     private void Start()
     {
         playerSkills = FindFirstObjectByType<Player>().GetComponent<PlayerSkills>();
-        skillUI = GameObject.FindGameObjectWithTag("SkillUI").GetComponent<SkillUI>();
+        skillUI = GameObject.FindGameObjectWithTag("RewardUI").GetComponent<RewardUI>();
         currentDuration = duration;
     }
 
@@ -31,14 +32,13 @@ public class Skill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            skillUI.SetSkillDescActive(this);
+            skillUI.SetRewardDescActive(this);
         }
     }
 
     public void AddSkill()
     {
         playerSkills.skills[skillName] = this;
-        Destroy(gameObject);
     }
 
     public void Explode()

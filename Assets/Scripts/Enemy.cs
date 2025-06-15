@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private PlayerSkills pSk;
     public float knockback = 3f;
 
+    public int xp;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            player.GainXP(xp);
             Destroy(gameObject);
             if (room != null) //для тестовой комнаты
                 room.enemies.Remove(gameObject);
@@ -92,7 +94,6 @@ public class Enemy : MonoBehaviour
     {
         currentStunTime = stunTime;
         health -= damage;
-        Debug.Log(health);
     }
 
     public void OnTriggerStay2D(Collider2D other)

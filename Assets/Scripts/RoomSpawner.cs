@@ -22,7 +22,6 @@ public class RoomSpawner : MonoBehaviour
     private RoomVariants variants;
     private int rand;
 
-
     private void Start()
     {
         variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
@@ -31,28 +30,31 @@ public class RoomSpawner : MonoBehaviour
 
     public void Spawn()
     {
-
+        GameObject room = null;
         if (direction == Direction.Top)
         {
             rand = Random.Range(0, variants.topRooms.Length);
-            Instantiate(variants.topRooms[rand], transform.position, variants.topRooms[rand].transform.rotation);
+            room = Instantiate(variants.topRooms[rand], transform.position, variants.topRooms[rand].transform.rotation);
         }
         else if (direction == Direction.Bottom)
         {
             rand = Random.Range(0, variants.bottomRooms.Length);
-            Instantiate(variants.bottomRooms[rand], transform.position, variants.bottomRooms[rand].transform.rotation);
+            room = Instantiate(variants.bottomRooms[rand], transform.position, variants.bottomRooms[rand].transform.rotation);
         }
         else if (direction == Direction.Left)
         {
             rand = Random.Range(0, variants.leftRooms.Length);
-            Instantiate(variants.leftRooms[rand], transform.position, variants.leftRooms[rand].transform.rotation);
+            room = Instantiate(variants.leftRooms[rand], transform.position, variants.leftRooms[rand].transform.rotation);
         }
         else if (direction == Direction.Right)
         {
             rand = Random.Range(0, variants.rightRooms.Length);
-            Instantiate(variants.rightRooms[rand], transform.position, variants.rightRooms[rand].transform.rotation);
+            room = Instantiate(variants.rightRooms[rand], transform.position, variants.rightRooms[rand].transform.rotation);
         }
-
+        if (direction != Direction.None)
+        {
+            variants.CheckGeneration(room);
+        }
 
     }
 
@@ -63,6 +65,7 @@ public class RoomSpawner : MonoBehaviour
             if (gameObject.GetComponent<RoomSpawner>().direction == Direction.None && !other.CompareTag("BlankRoomPoint"))
             {
                 Debug.Log("Room upon room");
+                variants.rooms.Remove(parentRoom);
                 Destroy(parentRoom);
                 Instantiate(blankRoom, transform.position, Quaternion.identity);
             }

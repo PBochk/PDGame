@@ -5,19 +5,29 @@
 		<type fullname="ChangeRoom" preserve="nothing"/>
 		<type fullname="Dialog" preserve="nothing"/>
 		<type fullname="DialogueUI" preserve="nothing"/>
+		<type fullname="EndHandler" preserve="nothing"/>
 		<type fullname="Enemy" preserve="nothing"/>
 		<type fullname="GameInput" preserve="nothing"/>
 		<type fullname="Gun" preserve="nothing"/>
-		<type fullname="HealthDisplay" preserve="nothing"/>
+		<type fullname="PauseManager" preserve="nothing"/>
+		<type fullname="PauseUI" preserve="nothing"/>
+		<type fullname="Perk" preserve="nothing"/>
 		<type fullname="Player" preserve="nothing"/>
 		<type fullname="PlayerMeleeAttack" preserve="nothing"/>
-		<type fullname="PlayerRangeAttack" preserve="nothing"/>
+		<type fullname="PlayerPerks" preserve="nothing"/>
+		<type fullname="PlayerSkills" preserve="nothing"/>
+		<type fullname="PlayerUI" preserve="nothing"/>
+		<type fullname="Portal" preserve="nothing"/>
+		<type fullname="RangeAttack" preserve="nothing"/>
+		<type fullname="RewardPool" preserve="nothing"/>
+		<type fullname="RewardUI" preserve="nothing"/>
 		<type fullname="RoomSpawner" preserve="nothing"/>
 		<type fullname="RoomVariants" preserve="nothing"/>
+		<type fullname="Skill" preserve="nothing"/>
 		<type fullname="TriviaDialogue" preserve="nothing"/>
 		<type fullname="TriviaUI" preserve="nothing"/>
+		<type fullname="TriviaVariants" preserve="nothing"/>
 		<type fullname="Wall" preserve="nothing"/>
-		<type fullname="WeaponSwitch" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.2D.Animation.Runtime">
 		<type fullname="UnityEngine.U2D.Animation.BufferManager" preserve="nothing"/>
@@ -139,6 +149,8 @@
 		<type fullname="UnityEngine.MonoBehaviour" preserve="nothing"/>
 		<type fullname="UnityEngine.Motion" preserve="nothing"/>
 		<type fullname="UnityEngine.Object" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.ParticleSystemRenderer" preserve="nothing"/>
 		<type fullname="UnityEngine.QualitySettings" preserve="nothing"/>
 		<type fullname="UnityEngine.RectTransform" preserve="nothing"/>
 		<type fullname="UnityEngine.Renderer" preserve="nothing"/>

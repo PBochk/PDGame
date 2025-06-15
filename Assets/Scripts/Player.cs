@@ -12,7 +12,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
-    private HealthDisplay healthDisplay;
+    private PlayerUI healthDisplay;
+    private PlayerSkills pSk;
     private Rigidbody2D rb;
     public GameInput GameInput { get; private set; }
     private Vector2 moveInput;
@@ -21,10 +22,11 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     [Header("Player Stats")]
-    [SerializeField] private float movingSpeed = 10f;
-    private float currentSpeed;
-    public int health;
-    public int maxHealth;
+    public float movingSpeed = 10f;
+    [HideInInspector] public float currentSpeed = 0;
+    public float health;
+    public float maxHealth;
+    public float regen = 0;
 
     //Переменные для отбрасывания
     private float knockback = 10f;
@@ -32,13 +34,15 @@ public class Player : MonoBehaviour
     private float currentStunTime = 0f;
     private Enemy knockedEnemy;
 
+    public int currentXP;
+    private int XPToLvlUp;
+    public bool isLvlUp;
 
     private void Start()
     {
-        //maxHealth = health;
         anim = GetComponent<Animator>();
-        healthDisplay = FindFirstObjectByType<HealthDisplay>();
-        currentSpeed = movingSpeed;
+        healthDisplay = FindFirstObjectByType<PlayerUI>();
+        pSk = GetComponent<PlayerSkills>();
     }
 
     private void Awake()
@@ -69,8 +73,22 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (pSk.hasBackup)
+            {
+                health = maxHealth;
+                pSk.Revive();
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
+
+        if (health < maxHealth)
+        {
+            health += regen;
+        }
+
     }
 
     private void FixedUpdate()
@@ -119,7 +137,17 @@ public class Player : MonoBehaviour
         knockedEnemy = enemy;
     }
 
+    public void GainXP(int gainedXP)
+    {
+        currentXP += gainedXP;
+        if (currentXP >= XPToLvlUp)
+        {
+            LevelUp();
+        }
+    }
 
-
-
+    public void LevelUp()
+    {
+        XPToLvlUp = (int)((XPToLvlUp + 200) * 1.2f); 
+    }
 }

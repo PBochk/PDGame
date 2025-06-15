@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class Dialog : MonoBehaviour
 {
@@ -10,19 +11,16 @@ public class Dialog : MonoBehaviour
     private TextMeshProUGUI speakerName;
     private Image portrait;
     private Button button;
+    private Animator anim;
 
     public string[] message;
     public string[] names;
     public Sprite[] portraits;
     private int numberDialog = 0;
 
-    public bool dialogueEnded;
+    private bool dialogueEnded;
 
-    private void Start()
-    {
-        Initialize();
-    }
-    void Initialize()
+    private void Initialize()
     {
         speaker = gameObject;
         var diUI = GameObject.FindGameObjectWithTag("DialogueUI").GetComponent<DialogueUI>();
@@ -31,7 +29,8 @@ public class Dialog : MonoBehaviour
         speakerName = diUI.speakerName;
         portrait = diUI.portrait;
         button = diUI.button;
-
+        anim = diUI.animator;
+        anim.ResetTrigger("endDialogue");
         numberDialog = 0;
         dialogueEnded = false;
     }
@@ -55,33 +54,48 @@ public class Dialog : MonoBehaviour
         textDialog.text = message[numberDialog];
         speakerName.text = names[numberDialog];
         portrait.sprite = portraits[numberDialog];
+        anim.SetTrigger("startDialogue");
+        //Debug.Log("startDialogue");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            windowDialog.SetActive(false);
+            anim.SetTrigger("endDialogue");
         }
     }
 
     public void NextDialog()
     {
-        
         if (numberDialog == message.Length - 1)
         {
+            anim.SetTrigger("endDialogue");
             if (speaker.CompareTag("Character"))
             {
-                speaker.SetActive(false);
+                //speaker.SetActive(false);
             }
             else
             {
-                windowDialog.SetActive(false);
-                var trivia = GameObject.FindGameObjectWithTag("Trivia").GetComponent<TriviaDialogue>();
-                if (trivia.isRightAnswer)
-                    trivia.SpawnChest();
+                //windowDialog.SetActive(false);
+                if (speaker.CompareTag("Fail"))
+                {
+                    var portal = GameObject.FindGameObjectWithTag("Portal").GetComponent<Portal>();
+                    portal.HandleFail();
+                }
+                else if (speaker.CompareTag("Win"))
+                {
+                    var portal = GameObject.FindGameObjectWithTag("Portal").GetComponent<Portal>();
+                    portal.HandleWin();
+                }
                 else
-                    trivia.StartTrivia();
+                {
+                    var trivia = GameObject.FindGameObjectWithTag("Trivia").GetComponent<TriviaDialogue>();
+                    if (trivia.isRightAnswer)
+                        trivia.SpawnChest();
+                    else
+                        trivia.StartTrivia();
+                }
             }
             dialogueEnded = true;
             button.onClick.RemoveAllListeners();

@@ -189,6 +189,7 @@ MonoBehaviour:
   stunTime: 0.25
   isRanged: 1
   knockback: 2
+  xp: 10
 --- !u!114 &5083491915251292303
 MonoBehaviour:
   m_ObjectHideFlags: 0
