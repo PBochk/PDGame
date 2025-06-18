@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3528982597993448546}
   m_Layer: 0
   m_Name: MentorFail
-  m_TagString: FailedDialCharacter
+  m_TagString: Fail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -37,7 +37,7 @@ public class PlayerPerks : MonoBehaviour
                 }            
             case PerkName.RegenHP:
                 {
-                    player.regen += perk.perkValue;
+                    player.regen *= perk.perkValue;
                     break;
                 }            
             case PerkName.MovingSpeed:

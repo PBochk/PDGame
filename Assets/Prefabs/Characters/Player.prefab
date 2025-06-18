@@ -180,12 +180,12 @@ MonoBehaviour:
   isRestrained: 0
   movingSpeed: 3
   dashSpeed: 10
-  dashCooldown: 0
-  dashDuration: 0
+  dashCooldown: 5
+  dashDuration: 1
   currentSpeed: 0
-  health: 200
-  maxHealth: 200
-  regen: 0
+  health: 10
+  maxHealth: 10
+  regen: 0.001
   currentXP: 0
   isLvlUp: 0
 --- !u!114 &3062542073888720716
@@ -208,7 +208,7 @@ MonoBehaviour:
   anim: {fileID: 1933620233273546802}
   attackCooldown: 0.8
   attackRange: 0.39
-  damage: 100
+  damage: 5
 --- !u!114 &6194270462424524974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotCooldown: 0.5
-  damage: 25
-  bulletSpeed: 10
+  damage: 2
+  bulletSpeed: 15
   lifetime: 1
 --- !u!114 &-8945482913490797658
 MonoBehaviour:

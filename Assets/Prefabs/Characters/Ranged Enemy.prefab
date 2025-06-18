@@ -185,9 +185,9 @@ MonoBehaviour:
   takeDamageEffect: {fileID: 5594217137675591852, guid: d0de83468fa69f24988b7b8d2c5e6482, type: 3}
   enemyHitSound: {fileID: 0}
   enemyTakeDamageSound: {fileID: 8300000, guid: f2918244221c4f6428a21d891e074ae1, type: 3}
-  health: 200
+  health: 10
   speed: 1
-  enemyDamage: 40
+  enemyDamage: 1
   meleeAttackCooldown: 1
   stunTime: 0.25
   isRanged: 1
@@ -205,8 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0c6cbfb66062f4e9c24640a1e7e829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotCooldown: 1
-  damage: 20
+  shotCooldown: 5
+  damage: 1
   bulletSpeed: 5
   lifetime: 3
 --- !u!95 &8747450136794196367

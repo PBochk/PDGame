@@ -134,14 +134,18 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.CommandLineTest.RunData
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.ImageEditor
     UnityEngine.UI:
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.UI.Button
@@ -1303,7 +1307,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: a651355edc1c6911bb12970532ed72ab
+      Hash: b6b1cd950002f1f253b16bc7986abd43
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Player
@@ -1501,7 +1505,7 @@ ScriptsOnlyBuild:
     className: UnityOnTransformParentChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 9dcdeb6d3e276f4db6b88effc4841536
+      Hash: c74aad04b05bb33be8ac73189d927c5b
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Enemy
@@ -2503,7 +2507,7 @@ ScriptsOnlyBuild:
     className: Light2D
   - hash:
       serializedVersion: 2
-      Hash: aeb06fae5d3ec545ead2feac719de122
+      Hash: 9da7428202a0688c9d7804d3fe2fe3fe
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: AddRoom

@@ -93,6 +93,6 @@ public class RoomVariants : MonoBehaviour
         }
         //Debug.Log(rooms.Count + " " + isGenerated);
         isChecking = false;
-        XPToEnd = 2 * 5 * (rooms.Count - 1);
+        XPToEnd = 2 * 4 * (rooms.Count - 1);
     }
 }
