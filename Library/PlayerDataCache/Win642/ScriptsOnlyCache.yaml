@@ -134,10 +134,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -2754,4 +2752,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/GameOver.unity
-  playerPath: "C:/Users/Vlad/Desktop/u/\u041F\u0440\u043E\u0435\u043A\u0442.exe"
+  playerPath: "C:/Users/Vlad/Desktop/\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u0430/\u041F\u0440\u043E\u0435\u043A\u0442.exe"
