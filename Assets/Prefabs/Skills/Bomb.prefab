@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: 1
-  duration: 5
+  duration: 3
   currentDuration: 0
   cooldown: 15
   currentCooldown: 0
@@ -157,7 +157,9 @@ MonoBehaviour:
     \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
     \u0441\u0435\u043A\u0443\u043D\u0434 \u0432\u0437\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F,
     \u043D\u0430\u043D\u043E\u0441\u044F \u0443\u0440\u043E\u043D \u0432\u0441\u0435\u043C
-    \u0432\u0440\u0430\u0433\u0430\u043C \u043F\u043E\u0431\u043B\u0438\u0437\u043E\u0441\u0442\u0438. "
+    \u0432\u0440\u0430\u0433\u0430\u043C \u043F\u043E\u0431\u043B\u0438\u0437\u043E\u0441\u0442\u0438.
+    \u041D\u0430\u0436\u043C\u0438\u0442\u0435 \"3\", \u0447\u0442\u043E\u0431\u044B
+    \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
   skillObject: {fileID: 2571216415275805030, guid: 07f10312559a61442aa429e8eb195c50, type: 3}
   effect: {fileID: 8873406172988382304, guid: 43fe4e4114cb5764cb3235dcf17619b1, type: 3}
   enemy:
