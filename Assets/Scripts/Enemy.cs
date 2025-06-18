@@ -1,9 +1,11 @@
 using System;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject takeDamageEffect;
     [SerializeField] private AudioClip enemyHitSound;
     [SerializeField] private AudioClip enemyTakeDamageSound;
     private AudioSource audioSource;
@@ -96,6 +98,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Instantiate(takeDamageEffect, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(enemyTakeDamageSound);
         currentStunTime = stunTime;
         health -= damage;

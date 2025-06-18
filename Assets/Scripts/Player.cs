@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject damageEffect;
     [SerializeField] private AudioClip takeDamageSound;
     private AudioSource audioSource;
     public static Player Instance { get; private set; }
@@ -19,10 +20,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public GameInput GameInput { get; private set; }
     private Vector2 moveInput;
-    public bool facingRight = true;
+    [HideInInspector] public bool facingRight = true;
 
     private Animator anim;
-    public bool isRestrained;
+    [HideInInspector] public bool isRestrained;
 
     [Header("Player Stats")]
     public float movingSpeed;
@@ -42,9 +43,9 @@ public class Player : MonoBehaviour
     private float currentStunTime = 0f;
     private Enemy knockedEnemy;
 
-    public int currentXP;
+    [HideInInspector] public int currentXP;
     private int XPToLvlUp;
-    public bool isLvlUp;
+    [HideInInspector] public bool isLvlUp;
 
     private void Start()
     {
@@ -163,6 +164,7 @@ public class Player : MonoBehaviour
     {
         if (dif < 0)
         {
+            Instantiate(damageEffect, transform.position, Quaternion.identity);
             audioSource.PlayOneShot(takeDamageSound);
         }
         health += dif;

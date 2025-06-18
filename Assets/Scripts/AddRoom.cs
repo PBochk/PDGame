@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class AddRoom : MonoBehaviour
 {
+    public GameObject wallDestroyedEffect;
+    public GameObject chestSpawnEffect0;
+    public GameObject chestSpawnEffect1;
     [SerializeField] private AudioClip wallDestroyedSound;
     [SerializeField] private AudioClip enemySpawnSound;
     private AudioSource audioSource;
@@ -105,6 +108,7 @@ public class AddRoom : MonoBehaviour
         audioSource.PlayOneShot(wallDestroyedSound);
         foreach (GameObject wall in walls)
         {
+            Instantiate(wallDestroyedEffect, wall.transform.position, Quaternion.identity);
             if (wall != null && wall.transform.childCount != 0)
             {
                 Destroy(wall);
@@ -121,6 +125,8 @@ public class AddRoom : MonoBehaviour
             trivias.spawnedTrivias.Add(trivia.GetComponent<TriviaDialogue>());
             trivias.trivias.Remove(trivia);
             Instantiate(trivia, enemySpawners[0].transform.position,  Quaternion.identity);
+            Instantiate(chestSpawnEffect0, enemySpawners[0].transform.position, Quaternion.identity);
+            Instantiate(chestSpawnEffect1, enemySpawners[0].transform.position, Quaternion.identity);
         }
     }
 

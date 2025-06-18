@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef89a868220410f4d8d6dea7e85a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeDamageEffect: {fileID: 5594217137675591852, guid: d0de83468fa69f24988b7b8d2c5e6482, type: 3}
   enemyHitSound: {fileID: 8300000, guid: db1a0cae8d79ae74eab42f404b50b0f8, type: 3}
   enemyTakeDamageSound: {fileID: 8300000, guid: f2918244221c4f6428a21d891e074ae1, type: 3}
   health: 200

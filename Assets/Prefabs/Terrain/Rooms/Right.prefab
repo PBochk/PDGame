@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213ab16923a2cbd4dbef63f1b0067e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallDestroyedEffect: {fileID: 5594217137675591852, guid: 4b66daaad7bd7164ca5201a5bf3e27df, type: 3}
+  chestSpawnEffect0: {fileID: 5594217137675591852, guid: ebc437df1c423064795055c10da7489d, type: 3}
+  chestSpawnEffect1: {fileID: 5594217137675591852, guid: 78d26ace7b471a546b7cc98aed231fdb, type: 3}
   wallDestroyedSound: {fileID: 8300000, guid: 2cf2916d4aaf0614cb554d46df588857, type: 3}
   enemySpawnSound: {fileID: 8300000, guid: 5f37431ed8ce79f4da10a557535f7ef8, type: 3}
   walls:
