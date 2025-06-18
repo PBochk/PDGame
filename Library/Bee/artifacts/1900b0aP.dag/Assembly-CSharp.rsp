@@ -359,6 +359,7 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/FinalTrivia.cs"
 "Assets/Scripts/GameInput.cs"
+"Assets/Scripts/GameOverHandler.cs"
 "Assets/Scripts/Gun.cs"
 "Assets/Scripts/PauseManager.cs"
 "Assets/Scripts/PauseUI.cs"

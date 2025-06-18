@@ -1,38 +1,26 @@
 using System.Xml.XPath;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    public Text healthDisplay;
-    public Text xpDisplay;
-
     public Image healthBar;
     public Sprite[] healthBarSprites;
+    public Image xpBar;
+    public Sprite[] xpBarSprites;
     private Player player;
-    private PlayerSkills playerSkills;
-    private PlayerMeleeAttack attack;
-    
+    private RoomVariants rv;
     private void Start()
     {
         player = FindFirstObjectByType<Player>();
-        playerSkills = player.GetComponent<PlayerSkills>();
-        attack = player.GetComponent<PlayerMeleeAttack>();
+        rv = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
     }
 
     void Update()
     {
-        //if (playerSkills.skills.Count > 0)
-        //{
-        //    var bomb = playerSkills.skills[SkillName.Bomb];
-        //    healthDisplay.text = bomb.currentCooldown.ToString() + "    " + bomb.currentDuration.ToString();
-        //}
-        //healthDisplay.text = "Атака: " + attack.timeBtwAttack;
-        //healthDisplay.text = player.currentXP.ToString();
-        healthDisplay.text = "Здоровье: " + player.health;
         HealthChanged();
-        xpDisplay.text = "Очки информации: " + player.currentXP;
     }
 
     public void HealthChanged()
@@ -40,5 +28,18 @@ public class PlayerUI : MonoBehaviour
         var segmentCount = (int)(player.health * 10 / player.maxHealth);
         segmentCount = segmentCount < 0 ? 0 : segmentCount;
         healthBar.sprite = healthBarSprites[segmentCount];
+    }
+
+    public void XPChanged()
+    {
+        var XPToEnd = rv.XPToEnd;
+        Debug.Log(player.currentXP + "   " + XPToEnd);
+        var segmentCount = (int)(player.currentXP * 20 / XPToEnd);
+        segmentCount = segmentCount < 0 ? 0 : segmentCount;
+        if (segmentCount < 0)
+            segmentCount = 0;
+        else if (segmentCount > 20)
+            segmentCount = 20;
+        xpBar.sprite = xpBarSprites[segmentCount];
     }
 }

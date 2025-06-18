@@ -44,22 +44,11 @@ public class Portal : MonoBehaviour
     public void HandleFinalTrivia()
     {
         StartCoroutine(Handler());
-        //if (triviaNumber == totalTrivias) 
-        //{
-        //    mentorWin.GetComponent<Dialog>().StartDialogue();
-        //}
-        //else
-        //{
-        //    var current = finalTrivias[triviaNumber];
-        //    triviaNumber++;
-        //    current.isFinal = true;
-        //    current.StartTrivia();
-        //}
     }
 
     IEnumerator Handler()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         if (triviaNumber == totalTrivias)
         {
             mentorWin.GetComponent<Dialog>().StartDialogue();
@@ -92,6 +81,7 @@ public class Portal : MonoBehaviour
     IEnumerator LevelFailed()
     {
         yield return new WaitForSeconds(1f);
+        player.GetComponent<PlayerSkills>().hasBackup = false;
         player.GetComponent<Player>().health = 0;
     }
 }

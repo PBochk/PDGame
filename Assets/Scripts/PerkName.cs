@@ -2,5 +2,8 @@ public enum PerkName
 {
     MaxHP,
     RegenHP,
-    MovingSpeed
+    MovingSpeed,
+    AttackSpeed,
+    MeleeDamage,
+    RangeDamage
 }

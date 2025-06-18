@@ -8,6 +8,7 @@
 		<type fullname="EndHandler" preserve="nothing"/>
 		<type fullname="Enemy" preserve="nothing"/>
 		<type fullname="GameInput" preserve="nothing"/>
+		<type fullname="GameOverHandler" preserve="nothing"/>
 		<type fullname="Gun" preserve="nothing"/>
 		<type fullname="PauseManager" preserve="nothing"/>
 		<type fullname="PauseUI" preserve="nothing"/>

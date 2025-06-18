@@ -132,7 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd156cde7f1414a46b19863acbd48fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 360
+  PlayerShotSound: {fileID: 8300000, guid: df7e1740df6f6e345b021c406fe662fe, type: 3}
+  EnemyShotSound: {fileID: 8300000, guid: e0bc284ec84743c448b0d306f9e73592, type: 3}
   bulletObject: {fileID: 1564493031453032475, guid: ed5ba757e98459f40a87802384c15504, type: 3}
   shotPoint: {fileID: 895332795417610858}
   shotCooldown: 0

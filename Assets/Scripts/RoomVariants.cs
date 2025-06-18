@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,13 +17,34 @@ public class RoomVariants : MonoBehaviour
 
     private bool isChecking = false;
     private Player player;
+    public float timeToLose;
+    public GameObject mentorLose;
+    private Dialog loseDialogue;
+    public int XPToEnd = 300;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+        loseDialogue = mentorLose.GetComponent<Dialog>();
         var firstRoom = GameObject.FindGameObjectWithTag("FirstRoom");
         rooms.Add(firstRoom);
         loadingScreen = GameObject.FindGameObjectWithTag("LoadingScreen").GetComponent<Canvas>();
+    }
+
+    private void Update()
+    {
+        timeToLose -= Time.deltaTime;
+        if (timeToLose <= 0 )
+        {
+            loseDialogue.StartDialogue();
+            StartCoroutine(TimesOut());
+        }
+    }
+
+    IEnumerator TimesOut()
+    {
+        yield return new WaitForSeconds(2f);
+        player.GetComponent<PlayerSkills>().hasBackup = false;
+        player.health = 0;
     }
 
     public void CheckGeneration(GameObject newRoom)
@@ -62,14 +84,15 @@ public class RoomVariants : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else
+        else if (isGenerated)
         {
             loadingScreen.gameObject.SetActive(false);
             var m = FindFirstObjectByType<AudioSource>();
             m.Play();
-            player.currentSpeed = player.movingSpeed;
+            player.isRestrained = false;
         }
         //Debug.Log(rooms.Count + " " + isGenerated);
         isChecking = false;
+        XPToEnd = 2 * 5 * (rooms.Count - 1);
     }
 }

@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1979331104660100531}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5016165, y: 2.0899794, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.49559, y: 2.106, z: 0}
+  m_LocalScale: {x: 3.3069, y: 3.3069, z: 3.3069}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 4123257111082171673, guid: 0aa13037e575b2549b262a95e7384ac4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +123,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.015474439, y: -0.3541596}
-  m_Radius: 1.0118302
+  m_Offset: {x: -0.0026142597, y: -0.0069345236}
+  m_Radius: 0.3602476
 --- !u!114 &1367105926058093712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b8d5196f1494844904e80c4c892df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightAnswerSound: {fileID: 8300000, guid: de919b54d573a7944ad76c6235aea9d5, type: 3}
+  wrongAnswerSound: {fileID: 8300000, guid: 0dfcec77cf96666428a44d00613bd5d9, type: 3}
   qstText: "\u041F\u043E\u0447\u0435\u043C\u0443 \u043A\u043E\u0440\u043E\u0442\u043A\u0438\u0439
     \u043F\u0430\u0440\u043E\u043B\u044C \u043B\u0435\u0433\u0447\u0435 \u0432\u0437\u043B\u043E\u043C\u0430\u0442\u044C
     \u0431\u0440\u0443\u0442\u0444\u043E\u0440\u0441\u043E\u043C, \u0447\u0435\u043C
@@ -155,6 +157,5 @@ MonoBehaviour:
   wrongText: "\u0414\u043E\u0441\u0442\u0443\u043F \u0437\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D"
   mentorRight: {fileID: 2018993916993178355, guid: c7db682b71b47bd4f9a4dc2651a1850e, type: 3}
   mentorWrong: {fileID: 2018993916993178355, guid: 288f3728775d2cf44845196d1bc25a30, type: 3}
-  mentorFail: {fileID: 2018993916993178355, guid: 6367fbfe1974ce84ea184e95d790fd89, type: 3}
   isRightAnswer: 1
   isFinal: 0

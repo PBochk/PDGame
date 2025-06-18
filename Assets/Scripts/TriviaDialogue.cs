@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class TriviaDialogue : MonoBehaviour
 {
+    [SerializeField] private AudioClip rightAnswerSound;
+    [SerializeField] private AudioClip wrongAnswerSound;
+    private AudioSource audioSource;
     private Animator animator;
     private GameObject windowDialog;
     private TextMeshProUGUI question;
@@ -34,6 +37,7 @@ public class TriviaDialogue : MonoBehaviour
     [HideInInspector] public bool isRightAnswer;
     public bool isFinal;
     private Portal portal;
+    private Player player;
 
     private void Start()
     {
@@ -42,6 +46,7 @@ public class TriviaDialogue : MonoBehaviour
 
     private void Initialize()
     {
+        audioSource = FindFirstObjectByType<AudioSource>();
         if (!isFinal)
         {
             mentorRightDialogue = mentorRight.GetComponent<Dialog>();
@@ -77,6 +82,8 @@ public class TriviaDialogue : MonoBehaviour
         resetButton = tUI.resetButton;
         reset = tUI.reset;
         animator = tUI.animator;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.isRestrained = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -111,6 +118,7 @@ public class TriviaDialogue : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            player.isRestrained = false;
             animator.SetTrigger("EndTrivDial");
             //windowDialog.SetActive(false);
             rightButton.onClick.RemoveAllListeners();
@@ -123,6 +131,7 @@ public class TriviaDialogue : MonoBehaviour
 
     public void RightAnswer()
     {
+        audioSource.PlayOneShot(rightAnswerSound);
         isRightAnswer = true;
         question.text = rightText;
         rightButton.onClick.RemoveAllListeners();
@@ -143,6 +152,7 @@ public class TriviaDialogue : MonoBehaviour
 
     public void WrongAnswer()
     {
+        audioSource.PlayOneShot(wrongAnswerSound);
         isRightAnswer = false;
         question.text = wrongText;
         rightButton.onClick.RemoveAllListeners();

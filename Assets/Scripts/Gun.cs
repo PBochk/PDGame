@@ -1,8 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Gun : MonoBehaviour
 {
+    [SerializeField] private AudioClip PlayerShotSound;
+    [SerializeField] private AudioClip EnemyShotSound;
+    private AudioSource audioSource;
     private float offsetX;
     public GameObject bulletObject;
     public Transform shotPoint;
@@ -18,6 +22,7 @@ public class Gun : MonoBehaviour
     private bool isPlayerGun;
     private void Start()
     {
+        audioSource = FindFirstObjectByType<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         isPlayerGun = CompareTag("PlayerGun");
         RangeAttack rangeAttack = GetComponentInParent<RangeAttack>();
@@ -36,12 +41,12 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (CompareTag("PlayerGun"))
+        if (CompareTag("PlayerGun") && !player.isRestrained)
         {
             difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         }
-        else
+        else if (!CompareTag("PlayerGun"))
         {
             difference = player.transform.position - transform.position;
             rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
@@ -55,15 +60,27 @@ public class Gun : MonoBehaviour
             offsetX = 180f;
             rotZ *= -1;
         }
-        transform.rotation = Quaternion.Euler(offsetX, 0f, rotZ);
+        if (!CompareTag("PlayerGun") || !player.isRestrained)
+        {
+            transform.rotation = Quaternion.Euler(offsetX, 0f, rotZ);
+        }
 
         if (timeBtwShots <= 0)
         {
-            if (Input.GetMouseButton(1) || CompareTag("EnemyGun"))
+            if (Input.GetMouseButton(0) && !player.isRestrained || CompareTag("EnemyGun"))
             {
                 Instantiate(bulletObject, shotPoint.position, transform.rotation);
                 timeBtwShots = shotCooldown;
             }
+            if (Input.GetMouseButton(0) && !player.isRestrained)
+            {
+                audioSource.PlayOneShot(PlayerShotSound);
+            }
+            if (CompareTag("EnemyGun"))
+            {
+                audioSource.PlayOneShot(EnemyShotSound);
+            }
+
         }
         else
         {
@@ -71,3 +88,10 @@ public class Gun : MonoBehaviour
         }
     }
 }
+
+//[SerializeField] private AudioClip sound;
+//private AudioSource audioSource;
+
+//audioSource = FindFirstObjectByType<AudioSource>();
+
+//audioSource.PlayOneShot(sound);

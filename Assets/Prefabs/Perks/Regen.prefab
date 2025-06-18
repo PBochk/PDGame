@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 3366219503500134406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: -1.43, z: 0}
-  m_LocalScale: {x: 0.07083416, y: 0.07083416, z: 0.07083416}
+  m_LocalPosition: {x: -0.34851, y: -1.43, z: 0}
+  m_LocalScale: {x: 0.33878773, y: 0.33878773, z: 0.33878773}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 811347052310813615, guid: d1ce4e851f7c34e4eb94efccf3e877c3, type: 3}
+  m_Sprite: {fileID: -7477922981592017808, guid: e9126c996bd62fe4186e7c7410cbc2a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +123,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.160414, y: 0}
-  m_Radius: 6.3461275
+  m_Offset: {x: -0.07475951, y: 0}
+  m_Radius: 2.2918124
 --- !u!114 &7259345530657305268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,5 +138,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkName: 1
-  description: wololo
-  perkValue: 0.5
+  description: nanomachines, son
+  perkValue: 0.1

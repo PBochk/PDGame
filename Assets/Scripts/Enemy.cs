@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private AudioClip enemyHitSound;
+    [SerializeField] private AudioClip enemyTakeDamageSound;
+    private AudioSource audioSource;
     private Rigidbody2D rb;
 
     private float timeBtwAttack;
@@ -27,6 +30,7 @@ public class Enemy : MonoBehaviour
     public int xp;
     private void Start()
     {
+        audioSource = FindFirstObjectByType<AudioSource>();
         anim = GetComponent<Animator>();
         player = FindFirstObjectByType<Player>();
         room = GetComponentInParent<AddRoom>();
@@ -92,6 +96,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSource.PlayOneShot(enemyTakeDamageSound);
         currentStunTime = stunTime;
         health -= damage;
     }
@@ -114,6 +119,7 @@ public class Enemy : MonoBehaviour
 
     public void OnEnemyAttack()
     {
+        audioSource.PlayOneShot(enemyHitSound);
         if (!pSk.isRedirectOn)
         {
             player.ChangeHealth(-enemyDamage);

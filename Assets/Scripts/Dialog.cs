@@ -19,7 +19,7 @@ public class Dialog : MonoBehaviour
     private int numberDialog = 0;
 
     private bool dialogueEnded;
-
+    private Player player;
     private void Initialize()
     {
         speaker = gameObject;
@@ -29,10 +29,13 @@ public class Dialog : MonoBehaviour
         speakerName = diUI.speakerName;
         portrait = diUI.portrait;
         button = diUI.button;
+        button.GetComponentInChildren<TextMeshProUGUI>().text = "Далее";
         anim = diUI.animator;
         anim.ResetTrigger("endDialogue");
         numberDialog = 0;
         dialogueEnded = false;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.isRestrained = true;
     }
 
 
@@ -55,7 +58,6 @@ public class Dialog : MonoBehaviour
         speakerName.text = names[numberDialog];
         portrait.sprite = portraits[numberDialog];
         anim.SetTrigger("startDialogue");
-        //Debug.Log("startDialogue");
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -63,6 +65,7 @@ public class Dialog : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             anim.SetTrigger("endDialogue");
+            player.isRestrained = false;
         }
     }
 
@@ -73,7 +76,7 @@ public class Dialog : MonoBehaviour
             anim.SetTrigger("endDialogue");
             if (speaker.CompareTag("Character"))
             {
-                //speaker.SetActive(false);
+                speaker.SetActive(false);
             }
             else
             {
@@ -98,6 +101,7 @@ public class Dialog : MonoBehaviour
                 }
             }
             dialogueEnded = true;
+            player.isRestrained = false;
             button.onClick.RemoveAllListeners();
         }
 

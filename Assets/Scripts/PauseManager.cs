@@ -8,9 +8,11 @@ public class PauseManager : MonoBehaviour
     private PauseUI pauseUI;
     private Button resumeButton;
     private Button exitButton;
+    private Player player;
     private void Start()
     {
         pauseUI = GameObject.FindGameObjectWithTag("PauseUI").GetComponent<PauseUI>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class PauseManager : MonoBehaviour
 
     private void PauseGame()
     {
+        player.isRestrained = true;
         pauseScreen = pauseUI.pauseScreen;
         pauseScreen.SetActive(true);
         Time.timeScale = 0f;
@@ -39,6 +42,7 @@ public class PauseManager : MonoBehaviour
 
     private void ResumeGame()
     {
+        player.isRestrained = false;
         Time.timeScale = 1f;
         isPaused = false;
         AudioListener.pause = false;

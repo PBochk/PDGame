@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef89a868220410f4d8d6dea7e85a7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitSound: {fileID: 8300000, guid: db1a0cae8d79ae74eab42f404b50b0f8, type: 3}
+  enemyTakeDamageSound: {fileID: 8300000, guid: f2918244221c4f6428a21d891e074ae1, type: 3}
   health: 200
   speed: 2
   enemyDamage: 40
@@ -188,7 +190,7 @@ MonoBehaviour:
   stunTime: 0.25
   isRanged: 0
   knockback: 2
-  xp: 20
+  xp: 1
 --- !u!95 &8093772597977404450
 Animator:
   serializedVersion: 7

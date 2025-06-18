@@ -15,6 +15,7 @@ public class RewardUI : MonoBehaviour
 
     public void SetRewardDescActive(Skill skill)
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isRestrained = true;
         sk = skill;
         bg.gameObject.SetActive(true);
         animator.SetTrigger("RewardStart");
@@ -25,6 +26,7 @@ public class RewardUI : MonoBehaviour
 
     public void SetRewardDescActive(Perk perk)
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isRestrained = true;
         pe = perk;
         bg.gameObject.SetActive(true);
         animator.SetTrigger("RewardStart");
@@ -48,6 +50,7 @@ public class RewardUI : MonoBehaviour
             Destroy(pe.gameObject);
         }
         button.onClick.RemoveAllListeners();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().isRestrained = false;
     }
 
     public void RewardEnd()
