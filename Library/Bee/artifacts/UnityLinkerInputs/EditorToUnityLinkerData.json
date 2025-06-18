@@ -643,8 +643,7 @@
             "moduleName": "TextRendering",
             "usedInScenes": [
                 "Assets/Scenes/GameOver.unity",
-                "Assets/Scenes/Level.unity",
-                "Assets/Scenes/Level2.unity"
+                "Assets/Scenes/Level.unity"
             ]
         },
         {
@@ -795,7 +794,9 @@
             "fullManagedTypeName": "UnityEngine.Renderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/Level.unity"
+                "Assets/Scenes/GameOver.unity",
+                "Assets/Scenes/Level.unity",
+                "Assets/Scenes/Level2.unity"
             ]
         },
         {
@@ -1268,7 +1269,9 @@
             "fullManagedTypeName": "UnityEngine.SpriteRenderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/Level.unity"
+                "Assets/Scenes/GameOver.unity",
+                "Assets/Scenes/Level.unity",
+                "Assets/Scenes/Level2.unity"
             ]
         },
         {
