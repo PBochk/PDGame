@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\addroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|c:\\users\\vlad\\desktop\\unityproject\\\u043F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\dialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\dialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|c:\\users\\vlad\\desktop\\unityproject\\\u043F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\roomvariants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\roomvariants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|c:\\users\\vlad\\desktop\\unityproject\\\u043F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\addroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\addroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|c:\\users\\vlad\\desktop\\unityproject\\\u043F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\playerperks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerperks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|c:\\users\\vlad\\desktop\\unityproject\\\u043F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\perk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\perk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{19B48827-C535-0974-BDC5-19DBAE9FE0F9}|Assembly-CSharp.csproj|C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\assets\\scripts\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,19 +51,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dialog.cs",
+              "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Dialog.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Dialog.cs",
+              "ToolTip": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Dialog.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Dialog.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAIAwwF8AAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:18:45.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoomVariants.cs",
+              "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\RoomVariants.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RoomVariants.cs",
+              "ToolTip": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\RoomVariants.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RoomVariants.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAIwF8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:05:57.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerPerks.cs",
+              "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\PlayerPerks.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerPerks.cs",
+              "ToolTip": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\PlayerPerks.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerPerks.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T14:52:15.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Perk.cs",
+              "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Perk.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Perk.cs",
+              "ToolTip": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Perk.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Perk.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T14:52:06.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AddRoom.cs",
               "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\AddRoom.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AddRoom.cs",
               "ToolTip": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\AddRoom.cs",
               "RelativeToolTip": "Assets\\Scripts\\AddRoom.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAcwG4AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAuwG4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-17T22:31:11.315Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player.cs",
@@ -55,12 +123,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Player.cs",
               "ViewState": "AgIAAJEAAAAAAAAAAAAIwKYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-15T18:15:12.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-15T18:15:12.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\Vlad\\Desktop\\UnityProject\\\u041F\u0440\u043E\u0435\u043A\u0442\\Assets\\Scripts\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy.cs",
@@ -68,8 +135,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Enemy.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAAQwGQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T00:22:54.754Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T00:22:54.754Z"
             }
           ]
         }

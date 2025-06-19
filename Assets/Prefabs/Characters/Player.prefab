@@ -185,7 +185,7 @@ MonoBehaviour:
   currentSpeed: 0
   health: 10
   maxHealth: 10
-  regen: 0.001
+  regen: 0.0005
   currentXP: 0
   isLvlUp: 0
 --- !u!114 &3062542073888720716

@@ -20,13 +20,15 @@ public class Gun : MonoBehaviour
     private float rotZ;
 
     private bool isPlayerGun;
+    private Bullet bullet;
+    private RangeAttack rangeAttack;
     private void Start()
     {
         audioSource = FindFirstObjectByType<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         isPlayerGun = CompareTag("PlayerGun");
-        RangeAttack rangeAttack = GetComponentInParent<RangeAttack>();
-        Bullet bullet = bulletObject.GetComponent<Bullet>();
+        rangeAttack = GetComponentInParent<RangeAttack>();
+        bullet = bulletObject.GetComponent<Bullet>();
 
         shotCooldown = rangeAttack.shotCooldown;
         bullet.damage = rangeAttack.damage;
@@ -37,6 +39,12 @@ public class Gun : MonoBehaviour
         {
             bullet.enemyShooter = GetComponentInParent<Enemy>();
         }
+    }
+
+    public void UpdateStats()
+    {
+        shotCooldown = rangeAttack.shotCooldown;
+        bullet.damage = rangeAttack.damage;
     }
 
     void Update()

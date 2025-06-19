@@ -6,5 +6,4 @@ public class RangeAttack : MonoBehaviour
     public int damage;
     public int bulletSpeed;
     public int lifetime;
-
 }
